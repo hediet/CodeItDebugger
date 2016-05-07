@@ -1,0 +1,36 @@
+.map { padding: 10px; }
+.nl { clear: both; }
+
+div.field {
+  width: 40px;
+  height: 40px;
+  margin: 1px;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+.field .unit {
+    width: 70%;
+    height: 70%;
+    background-color: gray;
+    align-self: center;
+}
+
+.WALL {
+    background-color: brown;
+}
+
+.LAND {
+    background-color: antiquewhite;
+}
+
+.BASE {
+    background-color: orangered;
+}
+
+.WATER {
+    background-color: blue;
+}
+
+/* http://pousse.rapiere.free.fr/tome/tiles/AngbandTk/dg_grounds32.gif */

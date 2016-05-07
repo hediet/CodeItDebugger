@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "target": "es5",
+        "noImplicitAny": true,
+        "sourceMap": true,
+		"jsx": "react"
+    },
+	"files": [
+		"src/app.tsx",
+        "src/Interfaces.ts",
+		"typings/browser.d.ts"
+	]
+}
