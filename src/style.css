@@ -8,6 +8,7 @@ div.field {
   float: left;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .field .unit {
@@ -15,6 +16,38 @@ div.field {
     height: 70%;
     background-color: gray;
     align-self: center;
+}
+
+.edgeValue {
+    position: absolute;
+    align-self: center;
+
+    /* display: block; */
+    float: left;
+    
+    /* display: flex;*/
+    /* background-color: aqua;*/
+    font-size: 10px;
+}
+
+.edgeValue.edge1 {
+    left: 13px;
+    top: 1px;
+}
+
+.edgeValue.edge2 {
+    left: 25px;
+    top: 13px;
+}
+
+.edgeValue.edge3 {
+    left: 13px;
+    top: 25px;
+}
+
+.edgeValue.edge4 {
+    left: 1px;
+    top: 13px;
 }
 
 .WALL {

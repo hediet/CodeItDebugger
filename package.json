@@ -2,6 +2,7 @@
   "jspm": {
     "name": "app",
     "dependencies": {
+      "css": "npm:jspm-loader-css@^1.1.0",
       "events": "github:jspm/nodelibs-events@^0.1.1",
       "jquery": "npm:jquery@^2.2.3",
       "react": "npm:react@^0.14.7",
@@ -12,12 +13,20 @@
     },
     "peerDependencies": {
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
     },
     "overrides": {
       "npm:fbjs@0.6.1": {
         "dependencies": {}
+      },
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
       },
       "npm:jquery@2.2.3": {
         "format": "amd"

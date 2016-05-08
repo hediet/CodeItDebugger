@@ -1,8 +1,12 @@
 
-
 export interface MapWithNodes {
     map: Field[][];
     nodes: string[][];
+}
+
+export interface MapWithEdges {
+    map: Field[][];
+    edges: string[][][];
 }
 
 export interface DebugContent {

@@ -1,11 +1,10 @@
+
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as $ from 'jquery';
 import events from 'events';
 import * as model from './Interfaces.ts';
-
-
-
 
 
 interface WatchedExpression {
@@ -17,19 +16,19 @@ interface WatchedExpression {
 
 class RoundStateRenderer {
 	
-	public static render(map: model.Field[][], f: (x: number, y: number) => JSX.Element = null): JSX.Element {
+	public static render(map: model.Field[][], f: (x: number, y: number) => JSX.Element[] = null): JSX.Element {
 		if (f == null)
-			f = (x, y) => null;
+			f = (x, y) => [];
 			
 		const xMaxP1 = map.length;
 		const yMaxP1 = map[0].length;
 		
 		const elems: JSX.Element[] = [];
 		
-		for(let x = 0; x < xMaxP1; x++) {
-			for (let y = 0; y < yMaxP1; y++) {
+		for(let y = 0; y < yMaxP1; y++) {
+			for (let x = 0; x < xMaxP1; x++) {
 				let cl: string[] = [ "field" ];
-				if (y == 0)
+				if (x == 0)
 					cl.push("nl");
 				const field = map[x][y];
 				
@@ -71,10 +70,21 @@ class ValueRenderer {
 		if (obj.className === "MapWithNodes") {
 			const c = obj.content as model.MapWithNodes;
 			return RoundStateRenderer.render(c.map, (x, y) => {
-				return <div className="nodeValue">{c.nodes[x][y]}</div>;
+				return [<div className="nodeValue">{c.nodes[x][y]}</div>];
 			});
 		}
-		else if (obj.className === "RoundState") {
+		else if (obj.className === "MapWithEdges") {
+			const c = obj.content as model.MapWithEdges;
+			return RoundStateRenderer.render(c.map, (x, y) => {
+				return [
+					<div className="edgeValue edge1">{ c.edges[x][y][0] }</div>,
+					<div className="edgeValue edge2">{ c.edges[x][y][1] }</div>,
+					<div className="edgeValue edge3">{ c.edges[x][y][2] }</div>,
+					<div className="edgeValue edge4">{ c.edges[x][y][3] }</div>
+				];
+			});
+		}
+		else if (obj.className === "ClientRoundState") {
 			const c = obj.content as model.RoundState;
 			return RoundStateRenderer.render(c.map);
 		}
